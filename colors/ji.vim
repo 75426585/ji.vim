@@ -1,21 +1,8 @@
-if !has("gui_running")
-	if &t_Co != 256
-		echomsg "err: Please use a 256-colors terminal (so that t_Co=256 could be set)."
-		echomsg ""
-		finish
-	end
-endif
+set cursorline
+"如果运行不流畅，可注释此行
+
 
 set background=dark
-if v:version > 580
-	highlight clear
-	if exists("syntax_on")
-		syntax reset
-	endif
-endif
-set cursorline
-
-"hi Normal				cterm=none		ctermfg=230 ctermbg=23  guifg=#ffffff   guibg=#121212
 hi Normal				cterm=none		ctermfg=70  ctermbg=235
 hi Type                 cterm=none		ctermfg=3  ctermbg=235
 hi Constant             cterm=none		ctermfg=166  ctermbg=235
