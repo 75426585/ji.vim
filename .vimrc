@@ -9,9 +9,9 @@ let mapleader=","
 filetype off               
 set rtp+=~/.vim/bundle/vundle.vim 
 call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
+"Plugin 'VundleVim/Vundle.vim'
 Bundle 'scrooloose/syntastic'  
-Bundle 'altercation/vim-colors-solarized'  
+"Bundle 'altercation/vim-colors-solarized'  
 Bundle 'scrooloose/nerdtree'  
 Bundle 'yegappan/mru'  
 Bundle 'Lokaltog/vim-powerline'  
@@ -21,6 +21,7 @@ Bundle 'dyng/ctrlsf.vim'
 Bundle 'jiangmiao/auto-pairs'
 Bundle 'kien/ctrlp.vim'
 Bundle '75426585/ji.vim'
+Bundle '75426585/publisher'
 call vundle#end()            " required
 filetype plugin indent on
 
@@ -29,11 +30,9 @@ cd $HOME/www
 let $VIMFILES=$HOME.'/temp/'
 " 设置主题
 syntax enable
-set background=dark
-"colorscheme solarized
-colorscheme ji
-"set guifont=Monaco:h13,Hiragino\ Sans\ GB:h13,Microsoft\ YaHei:h13
-set guifont=Microsoft\ YaHei:h13
+colorscheme  ji
+set guifont=Monaco:h13,Hiragino\ Sans\ GB:h13,Microsoft\ YaHei:h13
+"set guifont=Microsoft\ YaHei:h13
 
 "设置NerdTree
 
@@ -48,7 +47,7 @@ let NERDTreeDirArrows='#'" 是否默认显示隐藏文件
 let NERDTreeShowLineNumbers=0" 是否默认显示行号
 let NERDTreeWinPos='right'" 窗口位置（'left' or 'right'）
 let NERDTreeWinSize=30" 窗口宽度
-let NERDTreeDirArrows=0
+let NERDTreeDirArrows=1
 let NERDTreeQuitOnOpen = 0" 当通过NERD Tree打开文件自动退出NERDTree界面
 let NERDTreeIgnore=['\.exe$','\.gif$','\.png$','\.jpeg$','\.swf$','\.ttc$','^CVS$','^SVN$','^.jpg$','^.bmp$','^.doc$','^.xlsx$']
 let g:NERDTreeChDirMode = 2"于ctrlp配置
@@ -59,7 +58,7 @@ nmap q <esc>:NERDTreeToggle<cr>
 
 let MRU_File=$VIMFILES.'mru_files.txt' 
 
-let MRU_Max_Entries = 300
+let MRU_Max_Entries = 900
 
 let MRU_Add_Menu = 0
 
@@ -122,6 +121,16 @@ noremap <C-f> :CtrlSF
 nmap <F3> <ESC>:CtrlSF <c-r><c-w><CR> 
 nmap <F4> <Esc>:CtrlSFToggle<CR>
 
+"设置函数注释
+map <F2> call AddTitle()<cr>'s
+function AddTitle()
+        call append(line("."),"    /**")
+        call append(line(".")+1," 	* Description : ")
+        call append(line(".")+2," 	* Author      : jishuai")
+        call append(line(".")+3," 	* Created Time: ".strftime("%Y-%m-%d %H:%M"))
+        call append(line(".")+4,"	*/")
+endfunction
+
 "调试快捷键（var_dump）
 imap <F6> var_dump($);exit;<left><left><left><left><left><left><left>
 "打印上传数据库的查询
@@ -145,7 +154,7 @@ let g:syntastic_loc_list_height = 1 "警告详情列表高度
 
 let g:syntastic_enable_highlighting = 0
 
-let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+let g:syntastic_php_checkers = ['php']
 
 let g:syntastic_enable_php_checker = 1
 
@@ -161,3 +170,4 @@ let g:Powerline_symbols = 'fancy'
 "自动补全函数
 let g:SuperTabRetainCompletionType=3
 let g:SuperTabDefaultCompletionType="<C-X><C-O>"
+:set pastetoggle=<F11>  
