@@ -22,6 +22,7 @@ Bundle 'jiangmiao/auto-pairs'
 Bundle 'kien/ctrlp.vim'
 Bundle '75426585/ji.vim'
 Bundle '75426585/publisher'
+Bundle 'vim-scripts/DoxygenToolkit.vim'
 call vundle#end()            " required
 filetype plugin indent on
 
@@ -31,7 +32,7 @@ let $VIMFILES=$HOME.'/temp/'
 " 设置主题
 syntax enable
 colorscheme  ji
-set guifont=Monaco:h13,Hiragino\ Sans\ GB:h13,Microsoft\ YaHei:h13
+set guifont=Monaco:h13,Microsoft\ YaHei:h13,Hiragino\ Sans\ GB:h13,
 "set guifont=Microsoft\ YaHei:h13
 
 "设置NerdTree
@@ -53,6 +54,18 @@ let NERDTreeIgnore=['\.exe$','\.gif$','\.png$','\.jpeg$','\.swf$','\.ttc$','^CVS
 let g:NERDTreeChDirMode = 2"于ctrlp配置
 
 nmap q <esc>:NERDTreeToggle<cr>
+
+"文档注释
+let g:DoxygenToolkit_authorName="jishuai,75426585@qq.com"
+let s:licenseTag = "Copyright(C)\<enter>"
+let s:licenseTag = s:licenseTag . "For free\<enter>"
+let s:licenseTag = s:licenseTag . "All right reserved\<enter>"
+let g:DoxygenToolkit_briefTag_funcName="yes"
+let g:doxygen_enhanced_color=1
+let g:DoxygenToolkit_briefTag_pre="@Synopsis  " 
+let g:DoxygenToolkit_paramTag_pre="@Param " 
+let g:DoxygenToolkit_returnTag="@Returns   " 
+let g:DoxygenToolkit_licenseTag="My own license"
 
 "记录历史文件
 
@@ -124,11 +137,11 @@ nmap <F4> <Esc>:CtrlSFToggle<CR>
 "设置函数注释
 map <F2> call AddTitle()<cr>'s
 function AddTitle()
-        call append(line("."),"    /**")
-        call append(line(".")+1," 	* Description : ")
-        call append(line(".")+2," 	* Author      : jishuai")
-        call append(line(".")+3," 	* Created Time: ".strftime("%Y-%m-%d %H:%M"))
-        call append(line(".")+4,"	*/")
+	call append(line("."),"    /**")
+	call append(line(".")+1," 	* Description : ")
+	call append(line(".")+2," 	* Author      : jishuai")
+	call append(line(".")+3," 	* Created Time: ".strftime("%Y-%m-%d %H:%M"))
+	call append(line(".")+4,"	*/")
 endfunction
 
 "调试快捷键（var_dump）
