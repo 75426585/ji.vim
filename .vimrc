@@ -1,4 +1,5 @@
 set nocompatible               " be iMproved  
+set ignorecase 
 set t_Co=256 
 "初始变量声明
 set shell=/bin/bash
