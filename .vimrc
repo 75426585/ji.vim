@@ -24,6 +24,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle '75426585/ji.vim'
 Bundle '75426585/publisher'
 Bundle 'vim-scripts/DoxygenToolkit.vim'
+Bundle 'othree/html5.vim'
 call vundle#end()            " required
 filetype plugin indent on
 
@@ -115,6 +116,8 @@ nmap <tab> V<
 :set shiftwidth=4
 :set autoindent
 :set cindent
+"tab自动转换为空格
+:set expandtab
 
 "格式化代码
 :filetype indent on  
@@ -185,3 +188,6 @@ let g:Powerline_symbols = 'fancy'
 let g:SuperTabRetainCompletionType=3
 let g:SuperTabDefaultCompletionType="<C-X><C-O>"
 :set pastetoggle=<F11>  
+
+"html5配置
+let g:html5_event_handler_attributes_complete = 0
