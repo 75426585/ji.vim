@@ -121,6 +121,7 @@ endif
 
 "ctrlSF 配置
 let g:ctrlsf_ackprg = 'ag'
+let g:ctrlsf_auto_focus = {"at": "start"}
 noremap <C-f> :CtrlSF 
 nmap <F3> <ESC>:CtrlSF <c-r><c-w><CR> 
 nmap <F4> <Esc>:CtrlSFToggle<CR>
